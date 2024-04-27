@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos</title>
+  <link rel="stylesheet" href="/css/syles.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Pedidos</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Restaurante</th>
+      <th>Item</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+      <th>Aumentar</th>
+      <th>Diminuir</th>
+      <th>Remover</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${sessionPedido}">
+      <td th:text="${item.nomeRestaurante}"></td>
+      <td th:text="${item.nome}"></td>
+      <td th:text="${item.preco}"></td>
+      <td th:text="${item.quantidadePedido}"></td>
+      <td><a th:href="@{/adicionar-pedido/{id}(id=${item.id})}">Aumentar</a></td>
+      <td><a th:href="@{/diminuir/{id}(id=${item.id})}">Diminuir</a></td>
+      <td><a th:href="@{/pedido/remover/{id}(id=${item.id})}">Remover</a></td>
+    </tr>
+    </tbody>
+  </table>
+  <p> Preço total: <span th:text="${valorTotal}"></span></p>
+  <p><a th:href="@{/index}">Listar restaurantes</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurantes</title>
+  <link rel="stylesheet" href="/css/syles.css">
+</head>
+<body>
+
+<div class="container">
+  <div th:switch="${restaurantes}">
+    <h2 th:case="null" style="color: #dc3545; margin-bottom: 20px;">Ainda não há restaurantes!</h2>
+    <div th:case="*">
+      <h2 style="color: #dc3545; margin-bottom: 20px;">Restaurantes</h2>
+      <table>
+        <thead>
+        <tr>
+          <th style="background-color: #dc3545; color: #fff;">Nome</th>
+          <th style="background-color: #dc3545; color: #fff;">Cardápio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="restaurante : ${restaurantes}">
+          <td th:text="${restaurante.nome}"></td>
+          <td><a th:href="@{/index-cardapio/{id}(id=${restaurante.id})}" style="color: #dc3545; text-decoration: none; transition: color 0.3s;">Cardápio</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p><a href="/pedido" style="color: #dc3545; text-decoration: none; transition: color 0.3s;">Visualizar pedido</a></p>
+</div>
+
+</body>
+</html>

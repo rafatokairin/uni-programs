@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápios</title>
+</head>
+<body>
+
+<div class="container">
+    <div th:switch="${cardapios}">
+        <h2 th:case="null">Ainda não há cardápio!</h2>
+        <div th:case="*">
+            <h2 th:text="'Cardápio - ' + ${restaurante.nome}"></h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Editar</th>
+                    <th>Remover</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cardapio : ${cardapios}">
+                    <td th:text="${cardapio.nome}"></td>
+                    <td th:text="${cardapio.descricao}"></td>
+                    <td th:text="${cardapio.preco}"></td>
+                    <td><a th:href="@{/{restauranteId}/editar-cardapio/{cardapioId}(restauranteId=${restaurante.id}, cardapioId=${cardapio.id})}">Editar</a></td>
+                    <td><a th:href="@{/{restauranteId}/remover-cardapio/{cardapioId}(restauranteId=${restaurante.id}, cardapioId=${cardapio.id})}">Remover</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p><a th:href="@{/novo-cardapio/{restauranteId}(restauranteId=${restaurante.id})}">Adicionar um novo cardápio</a></p>
+    <p><a th:href="@{/index}">Listar restaurantes</a></p>
+</div>
+
+</body>
+</html>

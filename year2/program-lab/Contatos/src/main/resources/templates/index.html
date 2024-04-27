@@ -1,0 +1,33 @@
+<div th:switch="${contatos}">
+    <h2 th:case="null">Ainda não há contatos!</h2>
+    <div th:case="*">
+        <h2>Contatos</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Data de nascimento</th>
+                <th>Editar</th>
+                <th>Remover</th>
+                <th>Favoritar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="contato : ${contatos}">
+                <td th:text="${contato.nome}"></td>
+                <td th:text="${contato.endereco}"></td>
+                <td th:text="${contato.email}"></td>
+                <td th:text="${contato.telefone}"></td>
+                <td th:text="${#dates.format(contato.dataNascimento, 'dd/MM/yyyy')}"></td>
+                <td><a th:href="@{/editar/{id}(id=${contato.id})}">Editar</a></td>
+                <td><a th:href="@{/remover/{id}(id=${contato.id})}">Remover</a></td>
+                <td><a th:href="@{/favoritar/{id}(id=${contato.id})}">Favoritar</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/novo-contato">Adicionar um novo contato</a></p>
+</div>

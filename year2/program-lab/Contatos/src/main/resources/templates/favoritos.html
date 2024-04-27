@@ -1,0 +1,24 @@
+<h2>Contatos</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Data de nascimento</th>
+        <th>Remover</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="contato : ${sessionFavoritos}">
+        <td th:text="${contato.nome}"></td>
+        <td th:text="${contato.endereco}"></td>
+        <td th:text="${contato.email}"></td>
+        <td th:text="${contato.telefone}"></td>
+        <td th:text="${#dates.format(contato.dataNascimento, 'dd/MM/yyyy')}"></td>
+        <td><a th:href="@{/favoritos/remover/{id}(id=${contato.id})}">Remover</a></td>
+    </tr>
+    </tbody>
+</table>
+<p><a href="/index">Listar todos os contatos</a></p>

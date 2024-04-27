@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurantes</title>
+</head>
+<body>
+
+<div class="container">
+    <div th:switch="${restaurantes}">
+        <h2 th:case="null">Ainda não há restaurantes!</h2>
+        <div th:case="*">
+            <h2>Restaurantes</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Editar</th>
+                    <th>Remover</th>
+                    <th>Cardápio</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="restaurante : ${restaurantes}">
+                    <td th:text="${restaurante.nome}"></td>
+                    <td><a th:href="@{/editar/{id}(id=${restaurante.id})}">Editar</a></td>
+                    <td><a th:href="@{/remover/{id}(id=${restaurante.id})}">Remover</a></td>
+                    <td><a th:href="@{/index-cardapio/{id}(id=${restaurante.id})}">Cardápio</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p><a href="/novo-restaurante">Adicionar um novo restaurante</a></p>
+</div>
+
+</body>
+</html>

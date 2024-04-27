@@ -1,0 +1,5 @@
+br\uel\contatos\ServletInitializer.class
+br\uel\contatos\ContatoController.class
+br\uel\contatos\ContatosApplication.class
+br\uel\contatos\Contato.class
+br\uel\contatos\ContatoRepository.class

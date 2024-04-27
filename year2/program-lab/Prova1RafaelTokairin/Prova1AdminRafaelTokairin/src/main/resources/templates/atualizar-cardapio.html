@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Cardápio</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Editar cardápio</h2>
+    <form action="#"
+          th:action="@{/{restauranteId}/atualizar-cardapio/{cardapioId}(restauranteId=${restaurante.id}, cardapioId=${cardapio.id})}"
+          th:object="${cardapio}"
+          method="post">
+        <label for="nome">Nome: </label>
+        <input type="text" th:field="*{nome}" id="nome" required>
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+        <br/>
+        <label for="descricao">Descrição: </label>
+        <input type="text" th:field="*{descricao}" id="descricao">
+        <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+        <br/>
+        <label for="preco">Preço: </label>
+        <input type="number" th:field="*{preco}" id="preco" required>
+        <span th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></span>
+        <br/>
+        <input type="submit" value="Atualizar">
+    </form>
+</div>
+
+</body>
+</html>

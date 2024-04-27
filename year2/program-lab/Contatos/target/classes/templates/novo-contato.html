@@ -1,0 +1,20 @@
+<form action="#" th:action="@{/adicionar-contato}" th:object="${contato}" method="post">
+    <label for="nome">Nome: </label>
+    <input type="text" th:field="*{nome}" id="nome">
+    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    <br/>
+    <label for="endereco">Endereço:</label>
+    <input type="text" th:field="*{endereco}" id="endereco">
+    <br/>
+    <label for="email">Email:</label>
+    <input type="email" th:field="*{email}" id="email">
+    <br/>
+    <label for="telefone">Telefone:*</label>
+    <input type="text" th:field="*{telefone}" id="telefone">
+    <span th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></span>
+    <br/>
+    <label for="dataNascimento">Data de nascimento</label>
+    <input type="date" th:field="*{dataNascimento}" id="dataNascimento"/>
+    <br/>
+    <input type="submit" value="Adicionar">
+</form>

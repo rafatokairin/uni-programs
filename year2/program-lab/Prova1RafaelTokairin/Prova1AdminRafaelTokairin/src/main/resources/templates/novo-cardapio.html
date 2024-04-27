@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Cardápio</title>
+</head>
+<body>
+<div class="container">
+    <h2>Novo cardápio</h2>
+    <form action="#" th:action="@{/adicionar-cardapio/{restauranteId}(restauranteId=${restaurante.id})}" th:object="${cardapio}" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" th:field="*{nome}" id="nome" required>
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" ></span>
+        <br/>
+        <label for="descricao">Descrição:</label>
+        <input type="text" th:field="*{descricao}" id="descricao">
+        <br/>
+        <label for="preco">Preço:</label>
+        <input type="number" th:field="*{preco}" id="preco" required>
+        <br/>
+        <input type="submit" value="Adicionar">
+        <p><a th:href="@{/index-cardapio/{restauranteId}(restauranteId=${restaurante.id})}">Listar cardápio</a></p>
+        <p><a th:href="@{/index}">Listar restaurantes</a></p>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio</title>
+  <link rel="stylesheet" href="/css/syles.css">
+</head>
+<body>
+
+<div class="container">
+  <div th:switch="${cardapios}">
+    <h2 th:case="null" style="color: #dc3545; margin-bottom: 20px;">Ainda não há cardápio!</h2>
+    <div th:case="*">
+      <h2 style="color: #dc3545; margin-bottom: 20px;" th:text="'Cardápio - ' + ${restaurante.nome}"></h2>      <table>
+        <thead>
+        <tr>
+          <th style="background-color: #dc3545; color: #fff;">Nome</th>
+          <th style="background-color: #dc3545; color: #fff;">Descrição</th>
+          <th style="background-color: #dc3545; color: #fff;">Preço</th>
+          <th style="background-color: #dc3545; color: #fff;">Pedido</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cardapio : ${cardapios}">
+          <td th:text="${cardapio.nome}"></td>
+          <td th:text="${cardapio.descricao}"></td>
+          <td th:text="${cardapio.preco}"></td>
+          <td><a th:href="@{/adicionar-pedido/{id}(id=${cardapio.id})}" style="color: #dc3545; text-decoration: none; transition: color 0.3s;">Pedir</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p><a href="/pedido" style="color: #dc3545; text-decoration: none; transition: color 0.3s;">Visualizar pedido</a></p>
+  <p><a th:href="@{/index}" style="color: #dc3545; text-decoration: none; transition: color 0.3s;">Listar restaurantes</a></p>
+</div>
+
+</body>
+</html>
