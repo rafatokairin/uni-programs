@@ -3,9 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define ENT 703
-#define STAR 42
-#define EXIT 482
+#define HASH_SIZE 199
 
 typedef struct Node {
     int dest;
@@ -13,31 +11,44 @@ typedef struct Node {
 } Node;
 
 typedef struct {
+    Node** table;
+} HashTable;
+
+typedef struct {
     int V;
-    Node** adjList;
+    HashTable* adjList;
 } Graph;
+
+int hash_function(int key) {
+    return key % HASH_SIZE;
+}
 
 Graph* criaGrafo(int V) {
     Graph* graph = (Graph*)malloc(sizeof(Graph));
     graph->V = V;
-    graph->adjList = (Node**)malloc(V * sizeof(Node*));
-    for (int i = 0; i < V; i++)
-        graph->adjList[i] = NULL;
+    graph->adjList = (HashTable*)malloc(V * sizeof(HashTable));
+    for (int i = 0; i < V; i++) {
+        graph->adjList[i].table = (Node**)malloc(HASH_SIZE * sizeof(Node*));
+        for (int j = 0; j < HASH_SIZE; j++)
+            graph->adjList[i].table[j] = NULL;
+    }
     return graph;
 }
 
 void addAresta(Graph* graph, int v1, int v2) {
     // Adiciona v2 na lista de adjacencia de v1
+    int index = hash_function(v1);
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->dest = v2;
-    newNode->next = graph->adjList[v1];
-    graph->adjList[v1] = newNode;
+    newNode->next = graph->adjList[v1].table[index];
+    graph->adjList[v1].table[index] = newNode;
 
     // Adiciona v1 na lista de adjacencia de v2
+    index = hash_function(v2);
     newNode = (Node*)malloc(sizeof(Node));
     newNode->dest = v1;
-    newNode->next = graph->adjList[v2];
-    graph->adjList[v2] = newNode;
+    newNode->next = graph->adjList[v2].table[index];
+    graph->adjList[v2].table[index] = newNode;
 }
 
 int ascii(const char* str) {
@@ -54,7 +65,8 @@ int dfs(Graph* graph, int atual, int dest, bool* visited) {
     int min_dist = -1; // Inicializa distancia minima como -1
 
     // Percorre a lista de adjacencia do vertice atual
-    Node* curr = graph->adjList[atual];
+    int index = hash_function(atual);
+    Node* curr = graph->adjList[atual].table[index];
     while (curr != NULL) {
         int v = curr->dest;
         if (!visited[v]) {
@@ -92,20 +104,23 @@ int main() {
 
     bool* visited = (bool*)calloc(V, sizeof(bool));
 
-    int ent_to_star = dfs(graph, ENT, STAR, visited);
-    int star_to_exit = dfs(graph, STAR, EXIT, visited);
+    int ent_to_star = dfs(graph, ascii("Entrada"), ascii("*"), visited);
+    int star_to_exit = dfs(graph, ascii("*"), ascii("Saida"), visited);
     int total_dist = ent_to_star + star_to_exit;
 
     printf("\nDistancia minima:\n%d\n", total_dist);
 
     free(visited);
     for (int i = 0; i < V; i++) {
-        Node* curr = graph->adjList[i];
-        while (curr != NULL) {
-            Node* temp = curr;
-            curr = curr->next;
-            free(temp);
+        for (int j = 0; j < HASH_SIZE; j++) {
+            Node* curr = graph->adjList[i].table[j];
+            while (curr != NULL) {
+                Node* temp = curr;
+                curr = curr->next;
+                free(temp);
+            }
         }
+        free(graph->adjList[i].table);
     }
     free(graph->adjList);
     free(graph);
