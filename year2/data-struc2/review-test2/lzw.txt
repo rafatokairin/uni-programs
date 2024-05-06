@@ -1,0 +1,15 @@
+0 -> a
+1 -> b
+2 -> w
+
+3 -> wa
+4 -> ab
+5 -> bb
+6 -> ba
+7 -> aw
+
+8 -> wab
+9 -> bba
+
+wabba wa bb a
+20110 3  5  0
