@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <limits.h>
 
-
 typedef struct adj {
     int vf, peso;
     struct adj* prox;
