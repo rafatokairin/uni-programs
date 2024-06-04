@@ -116,7 +116,6 @@ Processo removerProcessoTopo(Processo *heap, int *tam, int tipo)
         descerMax(heap, 1, *tam);
     else    
         descerMin(heap, 1, *tam);
-
     return removido;
 }
 
@@ -145,54 +144,4 @@ void construirHeapMin(Processo *heap, int tam)
     int j = tam / 2;
     for (int i = j; i >= 1; i--)
         descerMin(heap, i, tam);
-}
-
-int main() 
-{
-    int tamMax = 0, tamMin = 0, pid = 1;
-    Processo proc;
-    Processo *heapMax = (Processo *)malloc(sizeof(Processo) * 1);
-    Processo *heapMin = (Processo *)malloc(sizeof(Processo) * 1);
-
-    int opcao, prioridade, tempoEspera;
-    do
-    {
-        printf("\n1. Inserir\n2. Remover\n3. Imprimir\n4. Sair\n");
-        scanf("%d", &opcao);
-        switch (opcao)
-        {
-        case 1:
-            printf("Digite prioridade e tempo espera:\n");
-            scanf("%d %d", &prioridade, &tempoEspera);
-            novoProcesso(&proc, &pid, prioridade, tempoEspera);
-            inserirProcesso(&heapMax, proc, &tamMax, MAX);
-            inserirProcesso(&heapMin, proc, &tamMin, MIN);
-            break;
-        case 2:
-            if (!heapVazio(tamMax)) {
-                Processo removidoMax = removerProcessoTopo(heapMax, &tamMax, MAX);
-                printf("\nProcesso removido do HeapMax:\nPrioridade: %d\n", removidoMax.prioridade);
-            } else {
-                printf("\nHeapMax está vazio.\n");
-            }
-            if (!heapVazio(tamMin)) {
-                Processo removidoMin = removerProcessoTopo(heapMin, &tamMin, MIN);
-                printf("Processo removido do HeapMin:\nTempo de Espera: %d\n", removidoMin.tempoEspera);
-            } else {
-                printf("HeapMin está vazio.\n");
-            }
-            break;
-        case 3:
-            imprimirProcesso(heapMax, heapMin, tamMax, tamMin);
-            break;
-        case 4:
-            printf("Finalizando...\n");
-            free(heapMax);
-            free(heapMin);
-            break;
-        default:
-            break;
-        }
-    } while (opcao != 4);
-    return 0;
 }
