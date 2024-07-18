@@ -34,9 +34,7 @@ void acceptAction(char *current_input, int accept_length, int last_final) {
             printf("%s ID\n", current_input);
         else if (last_final == 3)
             printf("IF\n");
-        else if (last_final == 12)
-            printf("white space\n");
-        else if (last_final == 13 || last_final == 9 || last_final == 5)
+        else if (last_final == 5 || last_final == 9 || last_final == 13)
             printf("%s error\n", current_input);
         else if (last_final == 6 || last_final == 8)
             printf("%s REAL\n", current_input);
@@ -47,6 +45,8 @@ void acceptAction(char *current_input, int accept_length, int last_final) {
             printf("%s comment\n", current_input);
             current_input[accept_length - 1] = aux;
         }
+        else if (last_final == 12)
+            printf("white space\n");
         current_input[accept_length] = aux;
     }
 }
