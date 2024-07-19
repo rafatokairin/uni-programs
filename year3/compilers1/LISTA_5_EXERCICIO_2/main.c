@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../headers/automata.h"
-#include "../headers/state.h"
+#include "automata.h"
+#include "state.h"
 
 int main() {
     char input[1026];
@@ -23,10 +23,10 @@ int main() {
             }
             if (current_state == 0) {
                 if (*current_input == '\n' || *current_input == '\0') break;
-                acceptAction(current_input, accept_length);
+                acceptAction(current_input, accept_length, last_final);
                 current_input += accept_length;
                 current_state = INITIAL_STATE;
-                cursor = accept_length = 0;
+                cursor = accept_length = last_final = 0;
             } else if (isFinalState(current_state)) {
                 last_final = current_state;
                 accept_length = cursor;

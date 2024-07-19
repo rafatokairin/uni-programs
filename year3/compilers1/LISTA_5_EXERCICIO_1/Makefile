@@ -6,13 +6,13 @@ CC = gcc
 CFLAGS = -ggdb -O0 -std=c99 -fstack-protector-all -Werror=implicit-function-declaration
 LDFLAGS=-O0 -g
 
-SRCDIR = ./compile ../headers ../src
+SRCDIR = .
 
 SRC = $(foreach dir,$(SRCDIR),$(wildcard $(dir)/*.c))
 
 OBJ = $(SRC:.c=.o)
 
-EXEC = main
+EXEC = l5e1
 
 $(EXEC): $(OBJ)
 	$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) -lm
