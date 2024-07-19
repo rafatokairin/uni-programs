@@ -15,22 +15,32 @@ int main() {
             current_state = transition(current_state, current_char, edges);
             
             if (current_state == -1) {
-                printf("ERRO\n");
-                current_input += cursor;
-                current_state = INITIAL_STATE;
-                cursor = accept_length = 0;
+                if (accept_length > 0) {
+                    acceptAction(current_input, accept_length);
+                    current_input += accept_length;
+                    cursor = accept_length = 0;
+                    current_state = INITIAL_STATE;
+                } else {
+                    printf("ERRO\n");
+                    current_input += cursor;
+                    cursor = accept_length = 0;
+                    current_state = INITIAL_STATE;
+                }
                 continue;
             }
             if (current_state == 0) {
                 if (*current_input == '\n' || *current_input == '\0') break;
                 acceptAction(current_input, accept_length);
                 current_input += accept_length;
-                current_state = INITIAL_STATE;
                 cursor = accept_length = 0;
+                current_state = INITIAL_STATE;
             } else if (isFinalState(current_state)) {
                 last_final = current_state;
                 accept_length = cursor;
             }
+        }
+        if (accept_length > 0) {
+            acceptAction(input, accept_length);
         }
     }
     return 0;
