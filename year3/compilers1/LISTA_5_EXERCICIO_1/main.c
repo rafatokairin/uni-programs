@@ -12,6 +12,7 @@ int main() {
 
         while (1) {
             char current_char = current_input[cursor++];
+            if (current_char == '\0') break;
             current_state = transition(current_state, current_char, edges);
             
             if (current_state == -1) {
