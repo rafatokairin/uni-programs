@@ -6,6 +6,8 @@
 
 int main() {
     char input[1026];
+    int first_token = 1;
+
     while (fgets(input, sizeof(input), stdin) != NULL) {
         int last_final = 0, current_state = INITIAL_STATE, accept_length = 0, cursor = 0;
         char *current_input = input;
@@ -17,7 +19,7 @@ int main() {
             
             if (current_state == -1) {
                 if (accept_length > 0) {
-                    acceptAction(current_input, accept_length);
+                    acceptAction(current_input, accept_length, 0);
                     current_input += accept_length;
                     cursor = accept_length = 0;
                     current_state = INITIAL_STATE;
@@ -29,9 +31,10 @@ int main() {
                 }
                 continue;
             }
+
             if (current_state == 0) {
                 if (*current_input == '\n' || *current_input == '\0') break;
-                acceptAction(current_input, accept_length);
+                acceptAction(current_input, accept_length, 0);
                 current_input += accept_length;
                 cursor = accept_length = 0;
                 current_state = INITIAL_STATE;
@@ -40,8 +43,9 @@ int main() {
                 accept_length = cursor;
             }
         }
+
         if (accept_length > 0) {
-            acceptAction(input, accept_length);
+            acceptAction(input, accept_length, 1);
         }
     }
     return 0;

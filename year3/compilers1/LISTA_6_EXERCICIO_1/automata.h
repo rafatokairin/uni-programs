@@ -7,6 +7,6 @@ int charmapColumn(char character);
 
 int transition(int current_state, char character, int edges[][21]);
 
-void acceptAction(char *current_input, int accept_length, int last_final, int is_last);
+void acceptAction(char *current_input, int accept_length, int is_last);
 
 #endif

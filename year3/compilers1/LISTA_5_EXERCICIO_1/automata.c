@@ -24,11 +24,11 @@ int transition(int current_state, char character, int edges[][39]) {
     return (index == -1) ? -1 : edges[current_state][index];
 }
 
-void acceptAction(char *current_input, int accept_length) {
+void acceptAction(char *current_input, int accept_length, int is_last) {
     if (accept_length > 0) {
         char aux = current_input[accept_length];
         current_input[accept_length] = '\0';
-        printf("%s\n", current_input);
+        printf("%s%s", current_input, is_last ? "" : "\n");
         current_input[accept_length] = aux;
     }
 }
