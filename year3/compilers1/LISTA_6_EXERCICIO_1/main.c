@@ -19,7 +19,7 @@ int main() {
 
             if (current_state == -1) {
                 if (accept_length > 0) {
-                    acceptAction(current_input, accept_length, last_final);
+                    acceptAction(current_input, accept_length, last_final, 0);
                     current_input += accept_length;
                     cursor = accept_length = 0;
                     current_state = INITIAL_STATE;
@@ -39,7 +39,7 @@ int main() {
             if (current_state == 0) {
                 if (*current_input == '\n' || *current_input == '\0') break;
                 if (accept_length > 0) {
-                    acceptAction(current_input, accept_length, last_final);
+                    acceptAction(current_input, accept_length, last_final, 0);
                     current_input += accept_length;
                     cursor = accept_length = 0;
                     current_state = INITIAL_STATE;
@@ -60,7 +60,7 @@ int main() {
         }
 
         if (accept_length > 0) {
-            acceptAction(input, accept_length, last_final);
+            acceptAction(input, accept_length, last_final, 1);
         }
     }
     return 0;

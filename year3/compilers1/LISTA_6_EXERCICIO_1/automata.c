@@ -31,35 +31,36 @@ int transition(int current_state, char character, int edges[][21]) {
     return (index == -1) ? -1 : edges[current_state][index];
 }
 
-void acceptAction(char *current_input, int accept_length, int last_final) {
+void acceptAction(char *current_input, int accept_length, int last_final, int is_last) {
     if (accept_length > 0) {
         char aux = current_input[accept_length];
         current_input[accept_length] = '\0';
 
         if(last_final == 3) 
-            printf("ELE\n");
+            printf("ELE%s", is_last ? "" : "\n");
         else if(last_final == 6)
-            printf("ELA\n");
+            printf("ELA%s", is_last ? "" : "\n");
         else if(last_final == 8)
-            printf("DELE\n");
+            printf("DELE%s", is_last ? "" : "\n");
         else if(last_final == 10)
-            printf("DELA\n");
+            printf("DELA%s", is_last ? "" : "\n");
         else if(last_final == 13)
-            printf("GATO\n");
+            printf("GATO%s", is_last ? "" : "\n");
         else if(last_final == 15)
-            printf("GATOS\n");
+            printf("GATOS%s", is_last ? "" : "\n");
         else if(last_final == 14)
-            printf("CARRO\n");
+            printf("CARRO%s", is_last ? "" : "\n");
         else if(last_final == 16)
-            printf("CARROS\n");
+            printf("CARROS%s", is_last ? "" : "\n");
         else if(last_final == 17)
-            printf("MAIS\n");
+            printf("MAIS%s", is_last ? "" : "\n");
         else if(last_final == 18)
-            printf("MENOS\n");
+            printf("MENOS%s", is_last ? "" : "\n");
         else if(last_final == 19)
-            printf("INTEIRO %s\n", current_input);
+            printf("INTEIRO %s%s", current_input, is_last ? "" : "\n");
         else if(last_final == 22)
-            printf("REAL %s\n", current_input);
+            printf("REAL %s%s", current_input, is_last ? "" : "\n");
+        
         current_input[accept_length] = aux;
     }
 }
