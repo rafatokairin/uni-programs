@@ -25,28 +25,28 @@ int transition(int current_state, char character, int edges[][41]) {
     return (index == -1) ? -1 : edges[current_state][index];
 }
 
-void acceptAction(char *current_input, int accept_length, int last_final, int is_last) {
+void acceptAction(char *current_input, int accept_length, int last_final) {
     if (accept_length > 0) {
         char aux = current_input[accept_length];
-        current_input[accept_length] = '\0'; // Temporariamente termina a string
+        current_input[accept_length] = '\0';
 
         if (last_final == 2 || last_final == 4) 
-            printf("%s ID%s", current_input, is_last ? "" : "\n");
+            printf("%s ID\n", current_input);
         else if (last_final == 3)
-            printf("IF%s", is_last ? "" : "\n");
+            printf("IF\n");
         else if (last_final == 5 || last_final == 9 || last_final == 13)
-            printf("%s error%s", current_input, is_last ? "" : "\n");
+            printf("%s error\n", current_input);
         else if (last_final == 6 || last_final == 8)
-            printf("%s REAL%s", current_input, is_last ? "" : "\n");
+            printf("%s REAL\n", current_input);
         else if (last_final == 7)
-            printf("%s NUM%s", current_input, is_last ? "" : "\n");
+            printf("%s NUM\n", current_input);
         else if (last_final == 11) {
-            current_input[accept_length - 1] = '\0'; // Remove o último caractere para "comment"
-            printf("%s comment%s", current_input, is_last ? "" : "\n");
-            current_input[accept_length - 1] = aux; // Restaura o caractere original
-        } else if (last_final == 12)
-            printf("white space%s", is_last ? "" : "\n");
-
-        current_input[accept_length] = aux; // Restaura o caractere original
+            current_input[accept_length - 1] = '\0';
+            printf("%s comment\n", current_input);
+            current_input[accept_length - 1] = aux;
+        }
+        else if (last_final == 12)
+            printf("white space\n");
+        current_input[accept_length] = aux;
     }
 }

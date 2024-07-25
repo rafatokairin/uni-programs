@@ -1,7 +1,0 @@
-chuchu ID
-white space
-666 NUM
-abobrinha ID
-@ error
-chuchu 6 comment
-0.0 REAL

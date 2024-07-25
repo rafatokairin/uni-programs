@@ -12,38 +12,25 @@ int main() {
 
         while (1) {
             char current_char = current_input[cursor++];
-            if (current_char == '\0') break; // Fim da string
-
             current_state = transition(current_state, current_char, edges);
             
-            if (current_state == -1) { // Transição inválida
+            if (current_state == -1) {
                 printf("ERRO\n");
-                current_input += cursor; // Avança o ponteiro
+                current_input += cursor;
                 current_state = INITIAL_STATE;
                 cursor = accept_length = 0;
                 continue;
             }
-
-            if (current_state == 0) { // Estado inicial após transição
-                if (*current_input == '\n' || *current_input == '\0') break; // Fim da linha ou do input
-
-                // Processa o token anterior
-                if (accept_length > 0) {
-                    acceptAction(current_input, accept_length, last_final, 0);
-                    current_input += accept_length;
-                    cursor = accept_length = 0;
-                    current_state = INITIAL_STATE;
-                }
-            } else if (isFinalState(current_state)) { // Estado final
+            if (current_state == 0) {
+                if (*current_input == '\n' || *current_input == '\0') break;
+                acceptAction(current_input, accept_length, last_final);
+                current_input += accept_length;
+                current_state = INITIAL_STATE;
+                cursor = accept_length = last_final = 0;
+            } else if (isFinalState(current_state)) {
                 last_final = current_state;
                 accept_length = cursor;
             }
-        }
-
-        // Processa o último token da linha, se houver
-        if (accept_length > 0) {
-            int is_last = feof(stdin) && (*current_input == '\0' || *(current_input - 1) == '\n');
-            acceptAction(input, accept_length, last_final, is_last);
         }
     }
     return 0;
