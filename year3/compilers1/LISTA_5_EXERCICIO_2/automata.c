@@ -31,22 +31,23 @@ void acceptAction(char *current_input, int accept_length, int last_final) {
         current_input[accept_length] = '\0';
 
         if (last_final == 2 || last_final == 4) 
-            printf("%s ID\n", current_input);
+            printf("%s ID", current_input);
         else if (last_final == 3)
-            printf("IF\n");
+            printf("IF");
         else if (last_final == 5 || last_final == 9 || last_final == 13)
-            printf("%s error\n", current_input);
+            printf("%s error", current_input);
         else if (last_final == 6 || last_final == 8)
-            printf("%s REAL\n", current_input);
+            printf("%s REAL", current_input);
         else if (last_final == 7)
-            printf("%s NUM\n", current_input);
+            printf("%s NUM", current_input);
         else if (last_final == 11) {
             current_input[accept_length - 1] = '\0';
-            printf("%s comment\n", current_input);
+            printf("%s comment", current_input);
             current_input[accept_length - 1] = aux;
         }
         else if (last_final == 12)
-            printf("white space\n");
+            printf("white space");
+
         current_input[accept_length] = aux;
     }
 }
