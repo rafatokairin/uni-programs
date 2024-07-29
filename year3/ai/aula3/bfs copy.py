@@ -27,6 +27,6 @@ def bfs(cidade_origem, cidade_destino, nome_arquivo):
                     visitados.add(vizinho)
     return None
 
-print(bfs("Maringá", "Uraí", "mapa.py"))  # Caminho Maringá para Uraí
-print(bfs("Guaravera", "Santa Fé", "mapa.py"))  # Caminho Guaravera para Santa Fé
-print(bfs("Astorga", "Jandaia do Sul", "mapa.py"))  # Caminho Astorga para Jandaia do Sul
+print(bfs("Maringá", "Uraí", "mapabfs.py"))  # Caminho Maringá para Uraí
+print(bfs("Guaravera", "Santa Fé", "mapabfs.py"))  # Caminho Guaravera para Santa Fé
+print(bfs("Astorga", "Jandaia do Sul", "mapabfs.py"))  # Caminho Astorga para Jandaia do Sul
