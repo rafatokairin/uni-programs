@@ -15,7 +15,7 @@ void acceptAction(const char* token) {
 %}
 
 %%
-"//".*\n { printf("comentario de linha\n"); }
+"//".*\n { }
 "void" { acceptAction("VOID"); }
 "int" { acceptAction("INT"); }
 "char" { acceptAction("CHAR"); }
