@@ -124,17 +124,17 @@ void acceptAction(const char* token) {
     yycolumnno += strlen(yytext); 
 } 
 <com>"/*" {
-    char next = input();
-    if (next == '\n') yylineno--;
-    if (next == '/') { 
+    char prox = input();
+    if (prox == '\n') yylineno--;
+    if (prox == '/') { 
         BEGIN(INITIAL); 
         yycolumnno += strlen(yytext) + 1; 
     } else {
         if (end) printf("\n");
         printf("warning:%d:%d: '%s' within block comment", yylineno, yycolumnno, yytext); 
         yycolumnno += strlen(yytext);
-        if (next == '\n') yylineno++;
-        unput(next);
+        if (prox == '\n') yylineno++;
+        unput(prox);
     }
     end = 1;
 }
