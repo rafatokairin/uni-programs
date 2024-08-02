@@ -1,11 +1,11 @@
 %option noyywrap
 %option yylineno
-%x COMMENT
+%x com
 %{
-int end = 0, yycolumn = 1, lin, col;
+int yycolumnno = 1, lin, col, end = 0;
 void updateColumn() {
     end = 1;
-    yycolumn += strlen(yytext);
+    yycolumnno += strlen(yytext);
 }
 void acceptAction(const char* token) {
     if (end) printf("\n");
@@ -15,7 +15,6 @@ void acceptAction(const char* token) {
 %}
 
 %%
-"//".*\n { }
 "void" { acceptAction("VOID"); }
 "int" { acceptAction("INT"); }
 "char" { acceptAction("CHAR"); }
@@ -72,17 +71,18 @@ void acceptAction(const char* token) {
 "scanf" { acceptAction("SCANF"); }
 "define" { acceptAction("DEFINE"); }
 "exit" { acceptAction("EXIT"); }
+"//".*\n { }
 \"([^\\\"]|\\.)*\" {
     if (end) printf("\n");
     printf("STRING(%.*s)", (int)(strlen(yytext) - 2), yytext + 1); 
     updateColumn();
 }
-" " { yycolumn++; }
-\n { yycolumn = 1; }
+" " { yycolumnno++; }
+\n { yycolumnno = 1; }
 (_*[a-zA-Z][a-zA-Z0-9_]*) {
     if (end) printf("\n");
     if (strlen(yytext) > 255) {
-        printf("error:lexical:%d:%d: identifier too long", yylineno, yycolumn);
+        printf("error:lexical:%d:%d: identifier too long", yylineno, yycolumnno);
     } else {
         printf("IDENTIFIER(%s)", yytext);  
     }
@@ -110,37 +110,37 @@ void acceptAction(const char* token) {
 }
 . { 
     if (end) printf("\n");
-    printf("error:lexical:%d:%d: %s", yylineno, yycolumn, yytext);
+    printf("error:lexical:%d:%d: %s", yylineno, yycolumnno, yytext);
     updateColumn();
 }
 "/*" { 
-    BEGIN(COMMENT); 
+    BEGIN(com); 
     lin = yylineno;
-    col = yycolumn; 
-    yycolumn += strlen(yytext); 
+    col = yycolumnno; 
+    yycolumnno += strlen(yytext); 
 }
-<COMMENT>"*/" {
+<com>"*/" {
     BEGIN(INITIAL); 
-    yycolumn += strlen(yytext); 
+    yycolumnno += strlen(yytext); 
 } 
-<COMMENT>"/*" {
+<com>"/*" {
     char next = input();
     if (next == '\n') yylineno--;
     if (next == '/') { 
         BEGIN(INITIAL); 
-        yycolumn += strlen(yytext) + 1; 
+        yycolumnno += strlen(yytext) + 1; 
     } else {
         if (end) printf("\n");
-        printf("warning:%d:%d: '%s' within block comment", yylineno, yycolumn, yytext); 
-        yycolumn += strlen(yytext);
+        printf("warning:%d:%d: '%s' within block comment", yylineno, yycolumnno, yytext); 
+        yycolumnno += strlen(yytext);
         if (next == '\n') yylineno++;
         unput(next);
     }
     end = 1;
 }
-<COMMENT>. { yycolumn += strlen(yytext); }
-<COMMENT>\n { yycolumn = 1; }
-<COMMENT><<EOF>> { 
+<com>. { yycolumnno += strlen(yytext); }
+<com>\n { yycolumnno = 1; }
+<com><<EOF>> { 
     if (end) printf("\n");
     printf("error:lexical:%d:%d: unterminated comment", lin, col); 
     exit(1); 
