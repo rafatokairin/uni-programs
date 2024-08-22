@@ -1,0 +1,1 @@
+ERRO LEXICO. Linha: 25 Coluna: 33 -> '#'

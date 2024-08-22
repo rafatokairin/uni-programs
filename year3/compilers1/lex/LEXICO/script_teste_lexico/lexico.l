@@ -13,7 +13,6 @@ void acceptAction(const char* token) {
     updateColumn();
 }
 %}
-
 %%
 "void" { acceptAction("VOID"); }
 "int" { acceptAction("INT"); }

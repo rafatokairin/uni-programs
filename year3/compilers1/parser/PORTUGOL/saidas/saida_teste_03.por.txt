@@ -1,0 +1,1 @@
+ERRO DE SINTAXE. Linha: 14 Coluna: 18 -> 'e'

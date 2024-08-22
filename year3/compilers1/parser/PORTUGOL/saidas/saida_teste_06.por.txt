@@ -1,0 +1,1 @@
+ERRO DE SINTAXE. Linha: 29 Coluna: 50 -> 'senao'
