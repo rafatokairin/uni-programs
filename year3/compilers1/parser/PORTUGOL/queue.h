@@ -17,20 +17,20 @@ typedef struct list {
 
 void *createList();
 
-void insertNode(List *list, int value, int line, int column, char *token);
+void insertNode(List *, int, int, int, char *);
 
-void removeNode(List *list);
+void removeNode(List *);
 
-int getNode(List *list);
+int getNode(List *);
 
-int getLine(List *list);
+int getLine(List *);
 
-int getColumn(List *list);
+int getColumn(List *);
 
-char *getTokenContent(List *list);
+char *getTokenContent(List *);
 
-void printList(List *list);
+void printList(List *);
 
-void freeList(List *list);
+void freeList(List *);
 
 #endif

@@ -1,0 +1,50 @@
+/* src/components/Popup.css */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid green;
+    position: relative;
+    text-align: center; /* Centralizar texto */
+    width: 300px;
+  }
+  
+  .popup-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .popup-close:hover svg{
+    fill: green;
+  }
+  
+  .popup-content p {
+    font-size: 16px; /* Tamanho do texto */
+    color: #333; /* Cor do texto */
+  }
+  
+  .popup-content a {
+    display: block;
+    margin-top: 10px;
+    color: green; /* Cor do link */
+    text-decoration: none;
+  }
+  
+  .popup-content a:hover {
+    text-decoration: underline;
+  }

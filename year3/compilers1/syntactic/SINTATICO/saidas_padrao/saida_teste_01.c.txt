@@ -1,0 +1,3 @@
+warning:3:5: '/*' within block comment
+warning:4:5: '/*' within block comment
+SUCCESSFUL COMPILATION.

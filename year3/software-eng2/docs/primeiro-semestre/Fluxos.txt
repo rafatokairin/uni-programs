@@ -1,0 +1,115 @@
+Caso de uso – Buscar local
+1.	Descrição: busca um local no mapa
+2.	Atores: usuário
+3.	Pré-condições: -
+4.	Trigger: clicar na barra de pesquisa
+5.	Fluxos:
+    Básico:
+    1. Usuário digita local na barra de busca;
+    2. Controlador de busca procura local;
+    3. Controlador de mapa coloca um PIN no local;
+
+    Alternativo 1:
+    1. Usuário clica em um local do mapa;
+        1.1. Controlador de busca procura o local na barra de pesquisa;
+        1.2. Volta ao fluxo principal 3;
+
+    Alternativo 2:
+    1. Usuário busca locais por categoria;
+        1.1. Controlador de Categoria busca mostra locais da categoria escolhida;
+    2. Usuário seleciona o lugar desejado;
+        2.1. Vai para o fluxo alternativo 2, passo 1.1;
+
+    Alternativo 3:
+    1. Usuário clica para mostrar os locais salvos;
+    	1.1. Controlador de busca mostra locais salvos;
+    2. Usuário seleciona local desejado;
+	2.1. Vai para o fluxo básico, passo 2;    
+
+    Alternativo 4:
+    5. Vai para caso de uso gerar rota;
+
+Caso de uso – Buscar categoria
+1.	Descrição: busca um local no mapa por categoria
+2.	Atores: usuário
+3.	Pré-condições: -
+4.	Trigger: clicar na categoria
+5.	Fluxos:
+    Básico: 
+    1. Usuário clica na categoria;
+    2. Controlador devolve locais da categoria escolhida;
+    3. Controlador de mapa coloca um PIN nos locais;
+    4. Usuário clica no local escolhido;
+
+    Alternativo 1:
+    1. Usuário clica em um local do mapa;
+        1.1. Controlador de busca procura o local na barra de pesquisa;
+        1.2. Volta ao fluxo principal 3;
+
+    Alternativo 2:
+    1. Usuário busca locais por categoria;
+        1.1. Controlador de Categoria busca mostra locais da categoria escolhida;
+    2. Usuário seleciona o lugar desejado;
+        2.1. Vai para o fluxo alternativo 2, passo 1.1;
+
+    Alternativo 3:
+    1. Usuário clica para mostrar os locais salvos;
+    	1.1. Controlador de busca mostra locais salvos;
+    2. Usuário seleciona local desejado;
+	2.1. Vai para o fluxo básico, passo 2;    	
+
+    Alternativo 4:
+    5. Vai para caso de uso gerar rota;
+
+6.Pós-condições: -
+
+Caso de uso – Gerar rota
+1.	Descrição: gera a rota para o local selecionado
+2.	Atores: Controlador de Rota
+3.	Pré-condições: Ter um local selecionado/buscado
+4.	Trigger: Clicar no ícone de gerar rota
+5.	Fluxos:
+    Básico:
+    1. Usuário clica no botão de gerar rota;
+    2. Controlador de rota gera rota para local escolhido;
+
+6.Pós-condições: a rota é mostrada no mapa
+
+Caso de uso - Mostrar favoritos
+1.	Descrição: Mostra os locais favoritos
+2. 	Atores: Usuário
+3.	Pré-condições: -
+4.	Trigger: Clicar no ícone da lista dos favoritos
+5.	Fluxos:
+    Básico:
+    1. Usuário clica no ícone de lista dos favoritos
+    2. Controlador de Busca mostra os locais favoritos
+
+    Fluxo alternativo 1:
+    1. Usuário realiza uma busca por local
+    	1.1 Vai para o fluxo básico, passo 1
+
+    Fluxo alternativo 2:
+    1. Usuário realiza uma busca por categoria
+	1.1. Vai para o fluxo básico, passo 1
+
+    Fluxo alternativo 3:
+    1. Usuário gera uma rota
+	1.1. Vai para o fluo básico, passo 1
+
+    Fluxo alternativo 4:
+    1. Usuário salva um local
+	1.1. Vai para o fluxo básico, passo 1
+
+Caso de uso - Pesquisa Google
+1.	Descrição: Realiza no Google a pesquisa no Google de um local não encontrado
+2. 	Atores: sistema
+3.	Pré-condições: Busca por local ter falhado
+4.	Trigger: Buscar um local, não existente
+5.	Fluxos:
+    Fluxo básico:
+    1. Buscar por um local não existente
+    2. Controlador de Pop-up retorna um Pop-up, informando que o local não foi encontrado
+    3. Usuário clica no botão para pesquisar no google
+    4. O sistema abre uma nova guia, pesquisando o local no google
+

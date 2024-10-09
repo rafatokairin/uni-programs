@@ -1,0 +1,2 @@
+warning:16:3: '/*' within block comment
+SUCCESSFUL COMPILATION.

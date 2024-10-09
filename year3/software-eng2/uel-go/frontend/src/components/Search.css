@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.search-container {
+    display: flex;
+    /* padding: 20px; */
+    height: 100vh; /* Altura total da tela */
+    width: 100vw;
+    box-sizing: border-box; /* Inclui o padding no cálculo da altura */
+  }
+  
+  .search-bar,
+  .search-info {
+    width: 400px; /* Largura fixa para a barra de pesquisa e informações */
+    color: black;
+    background-color: white;
+  }
+  
+  .search-bar {  
+    margin-top: 28px;
+    margin-left: 28px;
+    z-index: 3;
+    width: 2530px;
+    max-width: none;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    justify-content: left;
+    font-family: "Roboto", sans-serif;
+  }
+
+  & .favoriteList {
+    background-color: white;
+    position: absolute;
+    display: flex;
+    left: 96%;
+    margin-top: 28px;
+    justify-content: center;
+    border-radius: 20px;
+    width: 47.6px;
+    height: 47.6px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.419);
+    z-index: 3;
+    
+    & button {
+      border-radius: 20px;
+      outline: none;
+      border: 0;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    & button:hover svg {
+      fill: green;
+    }
+  }
+
+  .barra {
+    display: flex;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.419);
+    border-radius: 20px;
+
+    & input {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border: 1px;  
+      padding: 15px;
+      width: 270px;
+      font-size: 0.95em;
+    }
+
+    & input:focus {
+      outline: 0;
+    }
+
+    & button {
+      background-color: white;
+      border: 0px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    & button:nth-of-type(2) {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    & button:hover svg{
+      fill: green;
+    }
+  }
+
+  .listCategory {
+    display: flex;
+    flex-direction: row-reverse;
+    list-style: none;
+    color: black; 
+    padding: 0;
+    margin: 0;
+    margin-left: 30px;
+    width: auto ;
+    justify-content: left;
+
+    & li {
+      align-self: center;
+      background-color: white;
+      font-weight: 5  00;
+      padding: 5px;
+      padding-right: 10px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.419);
+      font-size: 0.9em;
+      margin: 0px 5px;
+      cursor: pointer;
+    }
+
+    & li:hover {
+      color: green;
+      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.419);
+      margin-bottom: 5px;
+
+      & svg {
+        fill: green ;
+      }
+    }
+  }
+  
+  .search-info {
+    margin: 10px;
+    height: 1250px;
+    text-align: center;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.419);
+    border-radius: 20px;
+    position: absolute;
+    z-index: 2;
+    font-family: "Roboto", sans-serif; 
+
+    & img {
+      border-bottom: 2px solid green;
+      border-top-right-radius: 18px;
+      border-top-left-radius: 18px;
+    }
+
+    & p:nth-of-type(1) {
+        text-align: left;
+        font-size: 1.2em;
+        margin: 0;
+        margin-top: 18px;
+        padding-left: 18px;
+        max-width: 380px;
+    }
+
+    & p:nth-of-type(2) {
+      text-align: left;
+      color: gray;
+      font-size: 0.9em;
+      margin: 0;
+      margin-top: 10px;
+      padding-left: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid green;
+    }
+
+    & p:nth-of-type(3) {
+      text-align: left;
+      border-top: 1px solid green;
+      margin: 0;
+      padding-left: 18px;
+      padding-top: 18px;
+    }
+
+    & button {
+      margin-top: 18px;
+      margin-bottom: 18px;
+      background-color: green;
+      border: none;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      
+      & svg {
+        fill: white;
+      }
+    }
+
+    & button:hover {
+      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.419);
+    }
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .search-results {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex: 1; /* Ocupar o espaço restante */
+  }
+  
+  .search-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .search-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    flex: 1;
+    height: 100%; /* Altura total da tela */
+    width: 100%;
+  }
+
+  .error-message {
+    color: red; /* Defina a cor desejada */
+    font-weight: bold; /* Opcional: para dar mais destaque */
+  }
+
+  .category-info-scrollable {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background-color: white;
+    width: 400px;
+    max-height: 640px;
+    color: black;
+    border-radius: 20px;
+    position: absolute;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.419);
+    margin: 10px;
+    padding-top: 74.6px;
+    font-family: "Roboto", sans-serif; 
+
+    & h2 {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      margin-left: 18px;
+      padding-top: 9px;
+    }
+  }
+  
+  .category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 364px;
+    margin-left: 18px;
+    padding-bottom: 9px;
+    padding-top: 9px;
+    border-bottom: 1px solid green;
+
+    & p {
+      width: 264px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    & p:hover {
+      color: green;
+    }
+  }
+
+  .category-item:nth-last-of-type(1) {
+    border: none;
+    padding-bottom: 18px;
+  }
+  
+  .category-item img {
+    border-radius: 8px;
+  }
+
+  .savedLocais {
+    width: 288px;
+    max-height: 93vh;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 2;
+    margin-top: 27px;
+    left: 80%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.419);
+    font-family: "Roboto", sans-serif;
+
+    & .emptyList {
+      color: black;
+      margin: 0;
+      padding: 15px 0px;
+      padding-left: 20px;
+      text-align: left;
+    }
+
+    & .savedItemDiv {
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      /* align-items: baseline; */
+    }
+
+    & .savedItem {
+      color: black;
+      border-bottom: 1px solid black;
+      padding: 20px 0px;
+      margin-left: 20px;
+      text-align: left;
+      width: 87%;
+      cursor: pointer;
+    }
+
+    & .savedItem:hover {
+      color: green;
+    }
+
+    .savedItem:nth-last-of-type(1) {
+      border: none;
+    }
+  }
+  

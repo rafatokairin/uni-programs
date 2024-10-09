@@ -1,0 +1,62 @@
+{
+    "nome": "UEL Go",
+    "integrantes": [
+        "Cristiano Kenji Nacayama",
+        "Fabio Jun Ido Nakagawa",
+        "Francisco Barone Gasparini Mugniani",
+        "Luiz Henrique Botega Beraldi",
+        "Marcelo Ferreira de Almeida",
+        "Rafael Palheta Tokairin"
+    ],
+    "duvidas": [
+        "Quais as dificuldades mais comuns durante a locomoção no campus da UEL?",
+        "As pessoas baixariam um aplicativo para resolver um problema de localização?",
+        "As pessoas conhecem as siglas (Ex. CCE, CCB, DC, ...) da UEL?",
+        "As pessoas conhecem os principais pontos de referência (Ex. Restaurante Universitário, Biblioteca Central, Hospital de Clínicas, ...) da UEL?"
+    ],
+    "certezas": [
+        "As pessoas preferem uma solução digital a uma analógica (Ex. Google Maps a um mapa de papel)",
+        "As pessoas tem dificuldade em localizar-se na UEL",
+        "A comunidade interna (Ex. Alunos, Funcionários, ...) já conhece os principais pontos de referência da UEL?"
+    ],
+    "questionario": {
+        "arquetipo": [
+            "vestibulando",
+            "alunoUel",
+            "membroComunidadeExterna"
+        ],
+        "perguntas": {
+            "geral": [
+                "Como você normalmente resolve problemas de localização quando está a pé?",
+                "Você conhece as siglas dos blocos da UEL?",
+                "Você conhece os principais pontos de referência da UEL?"
+            ],
+            "vestibulando": [
+                "Antes do vestibular, você já visitou o campus da UEL?",
+                [
+                    "Você sente algum receio em localizar-se no campus?",
+                    "Se sim, quais?",
+                    "Como você (lidou|pretende lidar) com isso?"
+                ]
+            ],
+            "alunoUel": [
+                "Você acredita que as estruturas universidades são bem identificadas?",
+                [
+                    "Quando era calour(a|o), sentia dificuldades em se localizar?",
+                    "Se sim, quais?",
+                    "Como você lidou com isso?"
+                ]
+            ],
+            "membroComunidadeExterna": [
+                "Você já foi a UEL?",
+                "Você frequenta a UEL?",
+                "Você acredita que as estruturas universidades estavam bem identificadas?",
+                [
+                    "Quando visitou a UEL, sentiu dificuldades em se localizar?",
+                    "Se sim, quais?",
+                    "Como você lidou com isso?"
+                ]
+            ]
+        }
+    }
+}
