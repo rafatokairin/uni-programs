@@ -1,0 +1,1 @@
+savedcmd_/home/rafatokairin/Documentos/so-programs/simple/simple.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T scripts/module.lds -o /home/rafatokairin/Documentos/so-programs/simple/simple.ko /home/rafatokairin/Documentos/so-programs/simple/simple.o /home/rafatokairin/Documentos/so-programs/simple/simple.mod.o

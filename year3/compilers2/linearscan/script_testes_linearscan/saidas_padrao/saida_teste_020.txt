@@ -1,0 +1,391 @@
+K = 16
+
+vr1: 0
+vr2: 1
+vr3: 2
+vr4: 2
+vr5: 3
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 8
+vr14: 8
+vr15: 9
+vr16: 10
+vr17: 10
+vr18: 10
+vr19: 10
+vr20: 11
+vr21: 10
+vr22: 10
+----------------------------------------
+K = 15
+
+vr1: 0
+vr2: 1
+vr3: 2
+vr4: 2
+vr5: 3
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 8
+vr14: 8
+vr15: 9
+vr16: 10
+vr17: 10
+vr18: 10
+vr19: 10
+vr20: 11
+vr21: 10
+vr22: 10
+----------------------------------------
+K = 14
+
+vr1: 0
+vr2: 1
+vr3: 2
+vr4: 2
+vr5: 3
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 8
+vr14: 8
+vr15: 9
+vr16: 10
+vr17: 10
+vr18: 10
+vr19: 10
+vr20: 11
+vr21: 10
+vr22: 10
+----------------------------------------
+K = 13
+
+vr1: 0
+vr2: 1
+vr3: 2
+vr4: 2
+vr5: 3
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 8
+vr14: 8
+vr15: 9
+vr16: 10
+vr17: 10
+vr18: 10
+vr19: 10
+vr20: 11
+vr21: 10
+vr22: 10
+----------------------------------------
+K = 12
+
+vr1: 0
+vr2: 1
+vr3: 2
+vr4: 2
+vr5: 3
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 8
+vr14: 8
+vr15: 9
+vr16: 10
+vr17: 10
+vr18: 10
+vr19: 10
+vr20: 11
+vr21: 10
+vr22: 10
+----------------------------------------
+K = 11
+
+vr1: SPILL
+vr2: 1
+vr3: 2
+vr4: 2
+vr5: 3
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 8
+vr14: 8
+vr15: 9
+vr16: 10
+vr17: 10
+vr18: 10
+vr19: 10
+vr20: 0
+vr21: 0
+vr22: 0
+----------------------------------------
+K = 10
+
+vr1: SPILL
+vr2: 1
+vr3: 2
+vr4: 2
+vr5: SPILL
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 8
+vr14: 8
+vr15: 9
+vr16: 0
+vr17: 0
+vr18: 0
+vr19: 0
+vr20: 3
+vr21: 0
+vr22: 0
+----------------------------------------
+K = 9
+
+vr1: SPILL
+vr2: 1
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 8
+vr14: 8
+vr15: 0
+vr16: 3
+vr17: 3
+vr18: 3
+vr19: 3
+vr20: 2
+vr21: 2
+vr22: 2
+----------------------------------------
+K = 8
+
+vr1: SPILL
+vr2: 1
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 7
+vr13: 0
+vr14: 0
+vr15: SPILL
+vr16: 2
+vr17: 2
+vr18: 2
+vr19: 2
+vr20: 3
+vr21: 2
+vr22: 2
+----------------------------------------
+K = 7
+
+vr1: SPILL
+vr2: SPILL
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: 5
+vr10: 6
+vr11: 4
+vr12: 0
+vr13: 3
+vr14: 3
+vr15: SPILL
+vr16: 2
+vr17: 2
+vr18: 2
+vr19: 2
+vr20: 1
+vr21: 1
+vr22: 1
+----------------------------------------
+K = 6
+
+vr1: SPILL
+vr2: SPILL
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 4
+vr7: 4
+vr8: 5
+vr9: SPILL
+vr10: 0
+vr11: 4
+vr12: 3
+vr13: 2
+vr14: 2
+vr15: SPILL
+vr16: 1
+vr17: 1
+vr18: 1
+vr19: 1
+vr20: 5
+vr21: 1
+vr22: 1
+----------------------------------------
+K = 5
+
+vr1: SPILL
+vr2: SPILL
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 4
+vr7: 4
+vr8: 0
+vr9: SPILL
+vr10: 3
+vr11: 4
+vr12: SPILL
+vr13: 1
+vr14: 1
+vr15: SPILL
+vr16: 0
+vr17: 0
+vr18: 0
+vr19: 0
+vr20: 2
+vr21: 0
+vr22: 0
+----------------------------------------
+K = 4
+
+vr1: SPILL
+vr2: SPILL
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 0
+vr7: 0
+vr8: 3
+vr9: SPILL
+vr10: 2
+vr11: SPILL
+vr12: SPILL
+vr13: 3
+vr14: 3
+vr15: SPILL
+vr16: 1
+vr17: 1
+vr18: 1
+vr19: 1
+vr20: 0
+vr21: 0
+vr22: 0
+----------------------------------------
+K = 3
+
+vr1: SPILL
+vr2: SPILL
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 0
+vr7: 0
+vr8: 2
+vr9: SPILL
+vr10: 1
+vr11: SPILL
+vr12: SPILL
+vr13: 2
+vr14: SPILL
+vr15: SPILL
+vr16: 0
+vr17: 0
+vr18: 0
+vr19: 0
+vr20: 2
+vr21: 0
+vr22: 0
+----------------------------------------
+K = 2
+
+vr1: SPILL
+vr2: SPILL
+vr3: 0
+vr4: SPILL
+vr5: SPILL
+vr6: 0
+vr7: 0
+vr8: 1
+vr9: SPILL
+vr10: SPILL
+vr11: SPILL
+vr12: SPILL
+vr13: 0
+vr14: SPILL
+vr15: SPILL
+vr16: 0
+vr17: 0
+vr18: 0
+vr19: 0
+vr20: 1
+vr21: 0
+vr22: 0
+----------------------------------------
+----------------------------------------
+K = 16: Successful Allocation
+K = 15: Successful Allocation
+K = 14: Successful Allocation
+K = 13: Successful Allocation
+K = 12: Successful Allocation
+K = 11: SPILL on interation(s): 19
+K = 10: SPILL on interation(s): 15, 19
+K = 9: SPILL on interation(s): 14, 15, 19
+K = 8: SPILL on interation(s): 12, 14, 15, 19
+K = 7: SPILL on interation(s): 11, 12, 14, 15, 19
+K = 6: SPILL on interation(s): 9, 11, 12, 14, 15, 19
+K = 5: SPILL on interation(s): 7, 9, 11, 12, 14, 15, 19
+K = 4: SPILL on interation(s): 5, 7, 9, 11, 12, 14, 15, 19
+K = 3: SPILL on interation(s): 4, 5, 7, 9, 11, 12, 14, 15, 19
+K = 2: SPILL on interation(s): 2, 4, 5, 7, 9, 11, 12, 14, 15, 19

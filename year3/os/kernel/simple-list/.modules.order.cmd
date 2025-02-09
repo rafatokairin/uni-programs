@@ -1,0 +1,1 @@
+savedcmd_/home/rafatokairin/Documentos/so-programs/simple-list/modules.order := {   echo /home/rafatokairin/Documentos/so-programs/simple-list/simple.o; :; } > /home/rafatokairin/Documentos/so-programs/simple-list/modules.order

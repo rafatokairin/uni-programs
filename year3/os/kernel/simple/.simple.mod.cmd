@@ -1,0 +1,1 @@
+savedcmd_/home/rafatokairin/Documentos/so-programs/simple/simple.mod := printf '%s\n'   simple.o | awk '!x[$$0]++ { print("/home/rafatokairin/Documentos/so-programs/simple/"$$0) }' > /home/rafatokairin/Documentos/so-programs/simple/simple.mod

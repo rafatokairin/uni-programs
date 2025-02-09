@@ -1,0 +1,43 @@
+K = 4
+
+vr1: 0
+vr2: 1
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 3
+vr7: 2
+vr8: 3
+vr9: 1
+vr10: 0
+----------------------------------------
+K = 3
+
+vr1: SPILL
+vr2: 1
+vr3: 2
+vr4: SPILL
+vr5: SPILL
+vr6: 2
+vr7: 0
+vr8: 2
+vr9: 1
+vr10: 0
+----------------------------------------
+K = 2
+
+vr1: SPILL
+vr2: 1
+vr3: 0
+vr4: SPILL
+vr5: SPILL
+vr6: 0
+vr7: SPILL
+vr8: 0
+vr9: 0
+vr10: 0
+----------------------------------------
+----------------------------------------
+K = 4: SPILL on interation(s): 5, 6
+K = 3: SPILL on interation(s): 4, 5, 6
+K = 2: SPILL on interation(s): 2, 4, 5, 6

@@ -1,0 +1,1 @@
+savedcmd_/home/rafatokairin/Documentos/so-programs/simple/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/rafatokairin/Documentos/so-programs/simple/Module.symvers -T /home/rafatokairin/Documentos/so-programs/simple/modules.order -i Module.symvers -e 
